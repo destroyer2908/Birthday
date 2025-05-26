@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to right, #ffe6f0, #fff5f8);
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #333;
+    }
+
+    .section {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      animation: fadeInUp 1s ease-in;
+    }
+
+    .section.active {
+      display: flex;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ad1457;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #880e4f;
+    }
+
+    .cake {
+      font-size: 100px;
+      margin-bottom: 20px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    .flame {
+      font-size: 40px;
+      color: orange;
+      display: none;
+    }
+
+    .gallery-images img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .gallery-images img.active {
+      display: block;
+    }
+
+    .balloons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: 0;
+      width: 40px;
+      height: 60px;
+      background-color: red;
+      border-radius: 50%;
+      animation: floatUp 6s ease-in infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 1.5s infinite ease-in-out;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Balloons -->
+  <div class="balloons" id="balloonsContainer"></div>
+
+  <!-- Start Section -->
+  <div id="startSection" class="section active">
+    <h1>Happy Birthday ❤️</h1>
+    <p>Click below to begin this special surprise</p>
+    <button class="button" onclick="startExperience()">Start</button>
+  </div>
+
+  <!-- Cake Section -->
+  <div id="cakeSection" class="section">
+    <h1>Happy Birthday, Nikita!</h1>
+    <p>Celebrating the wonderful person you are.</p>
+    <div class="cake">🎂</div>
+    <div class="flame" id="flame">🔥</div>
+    <p>Tap the candle to light it and make a wish!</p>
+    <button class="button" onclick="lightCandle()">Light Candle</button>
+  </div>
+
+  <!-- Message Section -->
+  <div id="messageSection" class="section">
+    <h2>My Wish For You</h2>
+    <p>
+      My love, today the stars shine just for you. 🌟<br>
+      Your laughter is my favorite melody, your eyes my northern star, and your heart the safest place I know. 💕
+    </p>
+    <p>
+      I thank the universe every day for blessing me with you. You’re more than my girlfriend — you are my soulmate, my dream, my forever. 🌈<br>
+      May your birthday be filled with magical moments, tight hugs, and sweet surprises — just like the love you give me every single day. 🎉
+    </p>
+    <p>
+      I’ll always be here, holding your hand, walking beside you, and loving you endlessly. Happy Birthday, Nikita! 🎂💖💫
+    </p>
+    <button class="button" onclick="showGallery()">See Our Memories</button>
+  </div>
+
+  <!-- Gallery Section -->
+  <div id="gallerySection" class="section">
+    <h2>Our Beautiful Moments</h2>
+    <div class="gallery-images">
+      <img src="pic/pic1.jpg" alt="Memory 1" class="active" />
+      <img src="pic/pic2.jpg" alt="Memory 2" />
+      <img src="pic/pic3.jpg" alt="Memory 3" />
+      <img src="pic/pic4.jpg" alt="Memory 4" />
+      <img src="pic/pic5.jpg" alt="Memory 5" />
+      <img src="pic/pic6.jpg" alt="Memory 6" />
+      <img src="pic/pic7.jpg" alt="Memory 7" />
+      <img src="pic/pic8.jpg" alt="Memory 8" />
+      <img src="pic/pic9.jpg" alt="Memory 9" />
+      <img src="pic/pic10.jpg" alt="Memory 10" />
+      <img src="pic/pic11.jpg" alt="Memory 11" />
+      <!-- <img src="pic/pic12.jpg" alt="Memory 12"/> -->
+      <img src="pic/pic13.jpg" alt="Memory 13" />
+      <img src="pic/pic14.jpg" alt="Memory 14" />
+      <img src="pic/pic15.jpg" alt="Memory 15" />
+      <img src="pic/pic16.jpg" alt="Memory 16" />
+      <img src="pic/pic17.jpg" alt="Memory 17" />
+      <img src="pic/pic18.jpg" alt="Memory 18" />
+      <img src="pic/pic19.jpg" alt="Memory 19" />
+      <img src="pic/pic20.jpg" alt="Memory 20" />
+      <img src="pic/pic21.jpg" alt="Memory 21" />
+      <img src="pic/pic22.jpg" alt="Memory 22" />
+    </div>
+  </div>
+
+  <!-- Final Message Section -->
+  <div id="finalMessageSection" class="section">
+    <h2>Forever Yours ❤️</h2>
+    <p>
+      I hope this little surprise made you smile, my love. 🥺<br>
+      You are my heart, my happiness, and the love of my life.<br><br>
+      Here's to many more birthdays, memories, and endless love together. 💍💑
+    </p>
+    <p style="font-style: italic;">With all my heart,<br>Your forever person 💕</p>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="hbd.mp3" type="audio/mp3" />
+    Your browser does not support the audio tag.
+  </audio>
+
+  <script>
+    const music = document.getElementById('bgMusic');
+    const images = document.querySelectorAll('.gallery-images img');
+    const balloonContainer = document.getElementById('balloonsContainer');
+    let currentImage = 0;
+
+    function startExperience() {
+      // Start music with fade-in
+      music.muted = false;
+      music.play().catch(err => console.log("Autoplay failed:", err));
+      fadeInMusic(music);
+
+      // Show next section
+      document.getElementById('startSection').classList.remove('active');
+      document.getElementById('cakeSection').classList.add('active');
+
+      // Generate balloons and sparkles
+      createBalloons(30);
+      createSparkles(60);
+    }
+
+    function lightCandle() {
+      document.getElementById('flame').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('cakeSection').classList.remove('active');
+        document.getElementById('messageSection').classList.add('active');
+      }, 2000);
+    }
+
+    function showGallery() {
+      document.getElementById('messageSection').classList.remove('active');
+      document.getElementById('gallerySection').classList.add('active');
+
+      const interval = setInterval(() => {
+        images[currentImage].classList.remove('active');
+        currentImage = (currentImage + 1) % images.length;
+        images[currentImage].classList.add('active');
+      }, 3000);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        document.getElementById('gallerySection').classList.remove('active');
+        document.getElementById('finalMessageSection').classList.add('active');
+      }, images.length * 3000 + 1000);
+    }
+
+    function createBalloons(count) {
+      for (let i = 0; i < count; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = Math.random() * 100 + '%';
+        balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        balloon.style.animationDuration = `${4 + Math.random() * 4}s`;
+        balloonContainer.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 8000);
+      }
+    }
+
+    function createSparkles(count = 50) {
+      for (let i = 0; i < count; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDuration = `${1 + Math.random() * 2}s`;
+        sparkle.style.opacity = Math.random();
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 8000);
+      }
+    }
+
+   function fadeInMusic(audioElement, duration = 3000) {
+  let volume = 0;
+  audioElement.volume = 0;
+  const step = 0.01;
+  const intervalTime = duration * step; // Correct interval time calculation
+
+  const fade = setInterval(() => {
+    if (volume < 1) {
+      volume += step;
+      audioElement.volume = Math.min(volume, 1);
+    } else {
+      clearInterval(fade);
+    }
+  }, intervalTime);
+}
+
+  </script>
+</body>
+</html>
